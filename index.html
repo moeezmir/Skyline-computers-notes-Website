@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Tailwind CDN with runtime config for class-based dark mode -->
   <script>
@@ -29,260 +30,538 @@
 
   <style>
     /* Optional: hamburger animation if you replace the SVG with 3 spans (kept here if you switch later) */
-    .hamburger-open span:nth-child(1) { transform: rotate(45deg) translateY(6px); }
-    .hamburger-open span:nth-child(2) { opacity: 0; }
-    .hamburger-open span:nth-child(3) { transform: rotate(-45deg) translateY(-6px); }
+    .hamburger-open span:nth-child(1) {
+      transform: rotate(45deg) translateY(6px);
+    }
+
+    .hamburger-open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger-open span:nth-child(3) {
+      transform: rotate(-45deg) translateY(-6px);
+    }
   </style>
 </head>
 
 <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 antialiased">
-<header class="bg-white dark:bg-gray-950 shadow-md sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-    <!-- Logo -->
-    <a href="#home" class="inline-flex items-center w-44 md:w-48 shrink-0" aria-label="Skyline Computers home">
-      <img src="image.png" alt="Skyline Computers" class="w-full h-auto" />
-    </a>
+  <header class="bg-white dark:bg-gray-950 shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#home" class="inline-flex items-center w-44 md:w-48 shrink-0" aria-label="Skyline Computers home">
+        <img src="image.png" alt="Skyline Computers" class="w-full h-auto" />
+      </a>
 
-    <!-- Right cluster: theme toggle + hamburger -->
-    <div class="flex items-center gap-2">
-      <!-- Theme toggle -->
-      <button
-        id="theme-toggle"
-        type="button"
-        class="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:text-gray-300 dark:hover:text-indigo-400 dark:hover:bg-gray-800"
-        aria-label="Toggle dark mode"
-      >
-        <!-- Sun/Moon icons (swap with CSS via .dark) -->
-        <svg id="icon-sun" class="h-5 w-5 hidden dark:block" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path stroke="currentColor" stroke-width="2" d="M12 4V2m0 20v-2M4 12H2m20 0h-2M5.64 5.64 4.22 4.22m15.56 15.56-1.42-1.42M18.36 5.64l1.42-1.42M5.64 18.36l-1.42 1.42M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/>
-        </svg>
-        <svg id="icon-moon" class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path stroke="currentColor" stroke-width="2" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-      </button>
-
-      <!-- Hamburger -->
-      <button
-        id="menu-btn"
-        class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-indigo-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:text-gray-300 dark:hover:text-indigo-400 dark:hover:bg-gray-800"
-        aria-label="Open main menu"
-        aria-controls="primary-navigation"
-        aria-expanded="false"
-        type="button"
-      >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </div>
-
-    <!-- Nav + Search -->
-    <div
-      id="menu"
-      class="hidden md:flex w-full md:w-auto md:items-center md:space-x-6 mt-4 md:mt-0"
-    >
-      <nav
-        id="primary-navigation"
-        class="flex flex-col md:flex-row md:space-x-6 font-medium w-full md:w-auto text-gray-700 dark:text-gray-200"
-        aria-label="Primary"
-      >
-        <a href="#home" class="px-2 py-2 hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded dark:hover:text-indigo-400">Home</a>
-        <a href="#courses" class="px-2 py-2 hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded dark:hover:text-indigo-400">Courses</a>
-        <a href="#notes" class="px-2 py-2 hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded dark:hover:text-indigo-400">Note</a>
-        <a href="#Assignments" class="px-2 py-2 hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded dark:hover:text-indigo-400">Assignments</a>
-        <a href="contact.html" class="px-2 py-2 hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded dark:hover:text-indigo-400">Contact</a>
-      </nav>
-
-      <!-- Search -->
-      <form class="mt-3 md:mt-0 w-full md:w-auto" role="search" aria-label="Sitewide" onsubmit="return false;">
-        <label for="searchInput" class="sr-only">Search</label>
-        <div class="relative">
-          <input
-            type="search"
-            id="searchInput"
-            name="q"
-            placeholder="Search..."
-            autocomplete="off"
-            class="w-full md:w-56 lg:w-64 pl-9 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
-          />
-          <svg class="pointer-events-none absolute left-2.5 top-2.5 h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" />
+      <!-- Right cluster: theme toggle + hamburger -->
+      <div class="flex items-center gap-2">
+        <!-- Theme toggle -->
+        <button id="theme-toggle" type="button"
+          class="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:text-gray-300 dark:hover:text-indigo-400 dark:hover:bg-gray-800"
+          aria-label="Toggle dark mode">
+          <!-- Sun/Moon icons (swap with CSS via .dark) -->
+          <svg id="icon-sun" class="h-5 w-5 hidden dark:block" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path stroke="currentColor" stroke-width="2"
+              d="M12 4V2m0 20v-2M4 12H2m20 0h-2M5.64 5.64 4.22 4.22m15.56 15.56-1.42-1.42M18.36 5.64l1.42-1.42M5.64 18.36l-1.42 1.42M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z" />
           </svg>
+          <svg id="icon-moon" class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path stroke="currentColor" stroke-width="2" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+
+        <!-- Hamburger -->
+        <button id="menu-btn"
+          class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-indigo-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:text-gray-300 dark:hover:text-indigo-400 dark:hover:bg-gray-800"
+          aria-label="Open main menu" aria-controls="primary-navigation" aria-expanded="false" type="button">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Nav + Search -->
+      <div id="menu" class="hidden md:flex w-full md:w-auto md:items-center md:space-x-6 mt-4 md:mt-0">
+        <nav id="primary-navigation"
+          class="flex flex-col md:flex-row md:space-x-6 font-medium w-full md:w-auto text-gray-700 dark:text-gray-200"
+          aria-label="Primary">
+          <a href="#home"
+            class="px-2 py-2 hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded dark:hover:text-indigo-400">Home</a>
+          <a href="#notes-by-duration"
+            class="px-2 py-2 hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded dark:hover:text-indigo-400">Note</a>
+          <a href="https://thesoftwaresite.netlify.app"
+            class="px-2 py-2 hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded dark:hover:text-indigo-400">Softwares</a>
+          <a href="#Assignments"
+            class="px-2 py-2 hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded dark:hover:text-indigo-400">Assignments</a>
+          <a href="contact.html"
+            class="px-2 py-2 hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded dark:hover:text-indigo-400">Contact</a>
+        </nav>
+
+        <!-- Search -->
+        <form class="mt-3 md:mt-0 w-full md:w-auto" role="search" aria-label="Sitewide" onsubmit="return false;">
+          <label for="searchInput" class="sr-only">Search</label>
+          <div class="relative">
+            <input type="search" id="searchInput" name="q" placeholder="Search..." autocomplete="off"
+              class="w-full md:w-56 lg:w-64 pl-9 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100" />
+            <svg class="pointer-events-none absolute left-2.5 top-2.5 h-5 w-5 text-gray-400 dark:text-gray-500"
+              viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" />
+            </svg>
+          </div>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section id="home"
+      class="bg-white dark:bg-gray-900 py-16 px-6 md:px-12 lg:px-24 flex flex-col-reverse md:flex-row items-center justify-between gap-10">
+      <!-- Text Content -->
+      <div class="max-w-xl">
+        <h1 id="home-title" class="text-3xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4">
+          Study smarter with curated Computer Notes
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+          Download curriculum‑aligned notes, assignments, and essential software for your Computer Courses —
+          organized, accessible, and free to use in class or self‑study.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#copa" class="bg-indigo-600 text-white px-5 py-2 rounded-md hover:bg-indigo-700 transition">Browse
+            notes</a>
+          <a href="#Assignments"
+            class="border border-indigo-600 text-indigo-600 px-5 py-2 rounded-md hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition">View
+            assignments</a>
         </div>
-      </form>
-    </div>
-  </div>
-</header>
-
-<main id="main" tabindex="-1">
-  <section id="home" class="bg-white dark:bg-gray-900 py-16 px-6 md:px-12 lg:px-24 flex flex-col-reverse md:flex-row items-center justify-between gap-10">
-    <!-- Text Content -->
-    <div class="max-w-xl">
-      <h1 id="home-title" class="text-3xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4">
-        Study smarter with curated Computer Notes
-      </h1>
-      <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
-        Download curriculum‑aligned notes, assignments, and essential software for your Computer Courses —
-        organized, accessible, and free to use in class or self‑study.
-      </p>
-      <div class="flex flex-wrap gap-4">
-        <a href="#copa" class="bg-indigo-600 text-white px-5 py-2 rounded-md hover:bg-indigo-700 transition">Browse notes</a>
-        <a href="#Assignments" class="border border-indigo-600 text-indigo-600 px-5 py-2 rounded-md hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition">View assignments</a>
       </div>
-    </div>
 
-    <!-- Hero Image -->
-    <div class="hero-media relative w-full md:w-1/2">
-      <img src="logo.png" alt="Skyline Computers" class="w-full h-auto max-h-[400px] object-contain" loading="eager" decoding="async">
-      <div id="particles-js" class="absolute inset-0 z-[-1]"></div>
-    </div>
-  </section>
-
-  <section id="notes-by-duration" class="py-16 px-6 md:px-12 lg:px-24">
-    <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-10 text-center">Download Notes by Course Duration</h2>
-
-    <!-- 3 Months -->
-    <section id="three-months" class="mb-12">
-      <h3 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">3-Month Courses</h3>
-      <ol class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
-          <h4 class="text-lg font-bold mb-2">Basic Computers / Fundamentals</h4>
-          <div class="download-wrapper flex justify-between items-center">
-            <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline" href="/downloads/notes/basic-fundamentals.pdf" download>Download</a>
-            <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 318 MB</span>
-          </div>
-        </li>
-        <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
-          <h4 class="text-lg font-bold mb-2">Computer Hardware</h4>
-          <div class="download-wrapper flex justify-between items-center">
-            <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline" href="/downloads/notes/computer-hardware.pdf" download>Download</a>
-            <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 8.95 MB</span>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <!-- 6 Months -->
-    <section id="six-months" class="mb-12">
-      <h3 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">6-Month Courses</h3>
-      <ol class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
-          <h4 class="text-lg font-bold mb-2">DBMS / SQL</h4>
-          <div class="download-wrapper flex justify-between items-center">
-            <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline" href="/downloads/notes/sql.pdf" download>Download</a>
-            <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 2.62 MB</span>
-          </div>
-        </li>
-        <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
-          <h4 class="text-lg font-bold mb-2">HTML / CSS / JavaScript</h4>
-          <div class="download-wrapper flex justify-between items-center">
-            <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline" href="/downloads/notes/html.pdf" download>Download</a>
-            <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 34.5 MB</span>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <!-- 1 Year -->
-    <section id="one-year" class="mb-12">
-      <h3 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">1-Year Courses</h3>
-      <ol class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
-          <h4 class="text-lg font-bold mb-2">Java</h4>
-          <div class="download-wrapper flex justify-between items-center">
-            <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline" href="/downloads/notes/java.pdf" download>Download</a>
-            <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 17.8 MB</span>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <!-- Stenography -->
-    <section id="stenography" class="mb-12">
-      <h3 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">Stenography</h3>
-      <ol class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
-          <h4 class="text-lg font-bold mb-2">Shorthand Practical</h4>
-          <div class="download-wrapper flex justify-between items-center">
-            <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline" href="/downloads/notes/steno-practical.pdf" download>Download</a>
-            <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 318 MB</span>
-          </div>
-        </li>
-        <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
-          <h4 class="text-lg font-bold mb-2">Computer Hardware</h4>
-          <div class="download-wrapper flex justify-between items-center">
-            <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline" href="/downloads/notes/computer-hardware.pdf" download>Download</a>
-            <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 8.95 MB</span>
-          </div>
-        </li>
-      </ol>
-    </section>
-  </section>
-
-  <section id="Assignments" class="py-16 px-6 md:px-12 lg:px-24">
-    <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center">Assignments</h2>
-
-    <!-- Word Assignments -->
-    <div class="mb-6">
-      <h3 class="sr-only">Word Assignments</h3>
-      <button
-        id="wordBtn"
-        class="w-full text-left px-6 py-4 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 transition"
-        aria-expanded="false"
-        aria-controls="wordPanel"
-      >
-        Word — Click to Expand Word Assignments
-      </button>
-      <div
-        id="wordPanel"
-        class="hidden bg-white dark:bg-gray-800 shadow dark:shadow-black/20 rounded-md mt-2 p-4"
-        role="region"
-        aria-labelledby="wordBtn"
-      >
-        <ul class="space-y-2 text-gray-700 dark:text-gray-200 font-medium">
-          <li><a href="/word/word.zip" download class="hover:underline text-indigo-600 dark:text-indigo-400">All Assignment Zip</a></li>
-          <li><a href="/word/list of shortcuts in ms word.pdf" download class="hover:underline text-indigo-600 dark:text-indigo-400">Word Shortcuts</a></li>
-          <li><a href="/word/Things to do in MS WORD.pdf" download class="hover:underline text-indigo-600 dark:text-indigo-400">To Do List</a></li>
-          <li><a href="/word/Assignment 1.pdf" download class="hover:underline text-indigo-600 dark:text-indigo-400">Assignment 1</a></li>
-        </ul>
+      <!-- Hero Image -->
+      <div class="hero-media relative w-full md:w-1/2">
+        <img src="logo.png" alt="Skyline Computers" class="w-full h-auto max-h-[400px] object-contain" loading="eager"
+          decoding="async">
+        <div id="particles-js" class="absolute inset-0 z-[-1]"></div>
       </div>
-    </div>
+    </section>
 
-    <!-- Excel Assignments -->
-    <div>
-      <h3 class="sr-only">Excel Assignments</h3>
-      <button
-        id="excelBtn"
-        class="w-full text-left px-6 py-4 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 transition"
-        aria-expanded="false"
-        aria-controls="excelPanel"
-      >
-        Excel — Click to Expand Excel Assignments
-      </button>
-      <div
-        id="excelPanel"
-        class="hidden bg-white dark:bg-gray-800 shadow dark:shadow-black/20 rounded-md mt-2 p-4"
-        role="region"
-        aria-labelledby="excelBtn"
-      >
-        <ul class="space-y-2 text-gray-700 dark:text-gray-200 font-medium">
-          <li><a href="/Excel/Excel.zip" download class="hover:underline text-indigo-600 dark:text-indigo-400">All Assignment Zip</a></li>
-          <li><a href="/Excel/assignment 1.pdf" download class="hover:underline text-indigo-600 dark:text-indigo-400">Excel Assignment 1</a></li>
-          <li><a href="/Excel/assignment 2.pdf" download class="hover:underline text-indigo-600 dark:text-indigo-400">Excel Assignment 2</a></li>
-        </ul>
+    <section id="notes-by-duration" class="py-16 px-6 md:px-12 lg:px-24">
+      <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-10 text-center">Download Notes by Course
+        Duration</h2>
+
+      <!-- 3 Months -->
+      <section id="three-months" class="mb-12">
+        <h3 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">3-Month Courses</h3>
+        <ol class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Basic Computers</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+                href="study/computer.pdf" download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 1.26 MB</span>
+            </div>
+          </li>
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Generations of Computer</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+                href="study/generation.pdf" download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 914 KB</span>
+            </div>
+          </li>
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Microsoft Word</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+                href="study/ms word.pdf" download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 867 KB</span>
+            </div>
+          </li>
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Microsoft Excel</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline" href="study/excel.pdf"
+                download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 0.98 MB</span>
+            </div>
+          </li>
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Microsoft Powerpoint</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+                href="study/ms powerpoint.pdf" download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 4.58 MB</span>
+            </div>
+          </li>
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Networking</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+                href="study/networking.pdf" download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 1.14 MB</span>
+            </div>
+          </li>
+      </section>
+
+      <!-- 6 Months -->
+      <section id="six-months" class="mb-12">
+        <h3 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">6-Month Courses</h3>
+        <ol class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Basic Computers</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+                href="study/computer.pdf" download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 1.26 MB</span>
+            </div>
+          </li>
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Generations of Computer</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+                href="study/generation.pdf" download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 914 KB</span>
+            </div>
+          </li>
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Microsoft Word</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+                href="study/ms word.pdf" download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 867 KB</span>
+            </div>
+          </li>
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Microsoft Excel</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline" href="study/excel.pdf"
+                download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 0.98 MB</span>
+            </div>
+          </li>
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Microsoft Powerpoint</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+                href="study/ms powerpoint.pdf" download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 4.58 MB</span>
+            </div>
+          </li>
+
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Microsoft DOS</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline" href="study/ms dos.pdf"
+                download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 1.00 MB</span>
+            </div>
+          </li>
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Networking</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+                href="study/networking.pdf" download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 1.14 MB</span>
+            </div>
+          </li>
+
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Tally Prime</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline" href="study/tally.pdf"
+                download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 662 KB</span>
+            </div>
+          </li>
+      </section>
+
+      <!-- 1 Year -->
+      <section id="one-year" class="mb-12">
+        <h3 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">1-Year Courses</h3>
+        <ol class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Basic Computers</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+                href="study/computer.pdf" download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 1.26 MB</span>
+            </div>
+          </li>
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Generations of Computer</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+                href="study/generation.pdf" download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 914 KB</span>
+            </div>
+          </li>
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Microsoft Word</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+                href="study/ms word.pdf" download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 867 KB</span>
+            </div>
+          </li>
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Microsoft Excel</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline" href="study/excel.pdf"
+                download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 0.98 MB</span>
+            </div>
+          </li>
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Microsoft Powerpoint</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+                href="study/ms powerpoint.pdf" download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 4.58 MB</span>
+            </div>
+          </li>
+
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Microsoft DOS</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline" href="study/ms dos.pdf"
+                download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 1.00 MB</span>
+            </div>
+          </li>
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Networking</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+                href="study/networking.pdf" download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 1.14 MB</span>
+            </div>
+          </li>
+
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Tally Prime</h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline" href="study/tally.pdf"
+                download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 662 KB</span>
+            </div>
+          </li>
+
+
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">HTML, CSS , JavaScript (Web development) </h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline" href="study/web.pdf"
+                download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 727 KB</span>
+            </div>
+          </li>
+
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">Java (Programming) </h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline" href="study/java.pdf"
+                download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 1.42 MB</span>
+            </div>
+          </li>
+
+
+
+          <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+            <h4 class="text-lg font-bold mb-2">SQL (DBMS) </h4>
+            <div class="download-wrapper flex justify-between items-center">
+              <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline" href="study/sql.pdf"
+                download>Download</a>
+              <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 640 KB</span>
+            </div>
+          </li>
+        </ol>
+
+      </section>
+<!-- Stenography -->
+<section id="stenography" class="mb-12">
+  <h3 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">Stenography</h3>
+  <ol class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+      <h4 class="text-lg font-bold mb-2">Stenography Practical</h4>
+      <div class="download-wrapper flex justify-between items-center">
+        <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+          href="study/steno practical.pdf" download>Download</a>
+        <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 1.26 MB</span>
       </div>
-    </div>
-  </section>
+    </li>
+    <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+      <h4 class="text-lg font-bold mb-2">Shorthand Book</h4>
+      <div class="download-wrapper flex justify-between items-center">
+        <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+          href="study/shorthand.pdf" download>Download</a>
+        <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 1.26 MB</span>
+      </div>
+    </li>
+    <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+      <h4 class="text-lg font-bold mb-2">Basic Computers</h4>
+      <div class="download-wrapper flex justify-between items-center">
+        <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+          href="study/computer.pdf" download>Download</a>
+        <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 1.26 MB</span>
+      </div>
+    </li>
+    <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+      <h4 class="text-lg font-bold mb-2">Generations of Computer</h4>
+      <div class="download-wrapper flex justify-between items-center">
+        <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+          href="study/generation.pdf" download>Download</a>
+        <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 914 KB</span>
+      </div>
+    </li>
+    <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+      <h4 class="text-lg font-bold mb-2">Microsoft Word</h4>
+      <div class="download-wrapper flex justify-between items-center">
+        <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+          href="study/ms word.pdf" download>Download</a>
+        <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 867 KB</span>
+      </div>
+    </li>
+    <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+      <h4 class="text-lg font-bold mb-2">Microsoft Excel</h4>
+      <div class="download-wrapper flex justify-between items-center">
+        <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+          href="study/excel.pdf" download>Download</a>
+        <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 0.98 MB</span>
+      </div>
+    </li>
+    <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+      <h4 class="text-lg font-bold mb-2">Microsoft Powerpoint</h4>
+      <div class="download-wrapper flex justify-between items-center">
+        <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+          href="study/ms powerpoint.pdf" download>Download</a>
+        <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 4.58 MB</span>
+      </div>
+    </li>
+    <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+      <h4 class="text-lg font-bold mb-2">Microsoft DOS</h4>
+      <div class="download-wrapper flex justify-between items-center">
+        <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+          href="study/ms dos.pdf" download>Download</a>
+        <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 1.00 MB</span>
+      </div>
+    </li>
+    <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+      <h4 class="text-lg font-bold mb-2">Networking</h4>
+      <div class="download-wrapper flex justify-between items-center">
+        <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+          href="study/networking.pdf" download>Download</a>
+        <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 1.14 MB</span>
+      </div>
+    </li>
+    <li class="card bg-white dark:bg-gray-800 p-6 rounded-lg shadow dark:shadow-black/20">
+      <h4 class="text-lg font-bold mb-2">Tally Prime</h4>
+      <div class="download-wrapper flex justify-between items-center">
+        <a class="dl-btn text-indigo-600 dark:text-indigo-400 font-medium hover:underline"
+          href="study/tally.pdf" download>Download</a>
+        <span class="file-info text-sm text-gray-500 dark:text-gray-400">Size: 662 KB</span>
+      </div>
+    </li>
+  </ol>
+</section>
 
-  <footer class="bg-gray-100 dark:bg-gray-950 text-gray-700 dark:text-gray-300 py-6 px-4 mt-12">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-left">
-      <p class="text-sm">&copy; 2025 Skyline Computers. All rights reserved.</p>
-      <p class="text-sm mt-2 md:mt-0"><a href="https://moeezmir.netlify.app">Made with ❤️ by Mir Moeez</a></p>
-    </div>
-  </footer>
-</main>
-<script src="script.js"></script>
+    </section>
+    <!-- notes section -->
+
+
+
+
+    <!-- Assignments Section -->
+    <section id="Assignments" class="py-16 px-6 md:px-12 lg:px-24">
+      <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center">Assignments</h2>
+
+      <!-- Word Assignments -->
+      <div class="mb-6">
+        <h3 class="sr-only">Word Assignments</h3>
+        <button id="wordBtn"
+          class="w-full text-left px-6 py-4 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 transition"
+          aria-expanded="false" aria-controls="wordPanel">
+          Word — Click to Expand Word Assignments
+        </button>
+        <div id="wordPanel" class="hidden bg-white dark:bg-gray-800 shadow dark:shadow-black/20 rounded-md mt-2 p-4"
+          role="region" aria-labelledby="wordBtn">
+          <ul class="space-y-2 text-gray-700 dark:text-gray-200 font-medium">
+            <li><a href="/word/word.zip" download class="hover:underline text-indigo-600 dark:text-indigo-400">All
+                Assignment Zip</a></li>
+            <li><a href="/word/list of shortcuts in ms word.pdf" download
+                class="hover:underline text-indigo-600 dark:text-indigo-400">Word Shortcuts</a></li>
+            <li><a href="/word/Things to do in MS WORD.pdf" download
+                class="hover:underline text-indigo-600 dark:text-indigo-400">To Do List</a></li>
+            <li><a href="/word/Assignment 1.pdf" download
+                class="hover:underline text-indigo-600 dark:text-indigo-400">Assignment 1</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Excel Assignments -->
+      <div>
+        <h3 class="sr-only">Excel Assignments</h3>
+        <button id="excelBtn"
+          class="w-full text-left px-6 py-4 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 transition"
+          aria-expanded="false" aria-controls="excelPanel">
+          Excel — Click to Expand Excel Assignments
+        </button>
+        <div id="excelPanel" class="hidden bg-white dark:bg-gray-800 shadow dark:shadow-black/20 rounded-md mt-2 p-4"
+          role="region" aria-labelledby="excelBtn">
+          <ul class="space-y-2 text-gray-700 dark:text-gray-200 font-medium">
+            <li><a href="/Excel/Excel.zip" download class="hover:underline text-indigo-600 dark:text-indigo-400">All
+                Assignment Zip</a></li>
+            <li><a href="/Excel/assignment 1.pdf" download
+                class="hover:underline text-indigo-600 dark:text-indigo-400">Excel Assignment 1</a></li>
+            <li><a href="/Excel/assignment 2.pdf" download
+                class="hover:underline text-indigo-600 dark:text-indigo-400">Excel Assignment 2</a></li>
+          </ul>
+        </div>
+      </div>
+      <br>
+      <!-- Html Assignments -->
+      <div>
+        <h3 class="sr-only">Html Assignments</h3>
+        <button id="htmlBtn"
+          class="w-full text-left px-6 py-4 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 transition"
+          aria-expanded="false" aria-controls="excelPanel">
+          Html — Click to Expand Html Assignments
+        </button>
+        <div id="htmlPanel" class="hidden bg-white dark:bg-gray-800 shadow dark:shadow-black/20 rounded-md mt-2 p-4"
+          role="region" aria-labelledby="excelBtn">
+          <ul class="space-y-2 text-gray-700 dark:text-gray-200 font-medium">
+            <li><a href="/Excel/Excel.zip" download class="hover:underline text-indigo-600 dark:text-indigo-400">All
+                Assignment Zip</a></li>
+            <li><a href="/Excel/assignment 1.pdf" download
+                class="hover:underline text-indigo-600 dark:text-indigo-400">Excel Assignment 1</a></li>
+            <li><a href="/Excel/assignment 2.pdf" download
+                class="hover:underline text-indigo-600 dark:text-indigo-400">Excel Assignment 2</a></li>
+          </ul>
+        </div>
+      </div>
+      <br>
+      <!-- more Assignments -->
+      <div>
+        <h3 class="sr-only">More Assignments</h3>
+        <button id="moreBtn"
+          class="w-full text-left px-6 py-4 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 transition"
+          aria-expanded="false" aria-controls="excelPanel">
+          More — Click to Expand open more Assignments
+        </button>
+        <div id="morePanel" class="hidden bg-white dark:bg-gray-800 shadow dark:shadow-black/20 rounded-md mt-2 p-4"
+          role="region" aria-labelledby="excelBtn">
+          <p>Assignments on the way.............</p>
+        </div>
+      </div>
+
+
+      <!-- more Assignments -->
+    </section>
+
+    <footer class="bg-gray-100 dark:bg-gray-950 text-gray-700 dark:text-gray-300 py-6 px-4 mt-12">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+        <p class="text-sm">&copy; 2025 Skyline Computers. All rights reserved.</p>
+        <p class="text-sm mt-2 md:mt-0"><a href="https://moeezmir.netlify.app">Made with ❤️ by Mir Moeez</a></p>
+      </div>
+    </footer>
+  </main>
+  <script src="script.js"></script>
 </body>
+
 </html>
