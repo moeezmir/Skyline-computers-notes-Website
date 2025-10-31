@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Skyline Computers — Contact</title>
+  <meta name="description" content="Contact Skyline Computer Institute in Srinagar, Kashmir for admissions, courses, and support." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Optional favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+    :root{ --bg:#0b1220; --card:#121a2b; --muted:#8ea0c6; --text:#e9efff; --brand:#5b8cff; --brand-2:#7aa5ff; --error:#ff5b6e; --ok:#2dd4bf; --ring: rgba(91,140,255,.35); --border:#1f2a44; }
+    *{box-sizing:border-box}
+    body{ margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background: radial-gradient(1200px 600px at 80% -100%, rgba(91,140,255,.18), transparent 60%), var(--bg); color:var(--text); line-height:1.5; }
+    .wrap{ max-width:1100px; margin:48px auto; padding:0 20px }
+    .grid{ display:grid; grid-template-columns:1.1fr 1fr; gap:28px }
+    @media (max-width:900px){ .grid{ grid-template-columns:1fr } }
+    .card{ background:linear-gradient(180deg, rgba(123,162,255,.06), transparent 40%), var(--card); border:1px solid var(--border); border-radius:16px; padding:28px; box-shadow:0 20px 60px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.02); backdrop-filter:saturate(140%) blur(6px); }
+    .brand{ display:flex; align-items:center; gap:12px; margin-bottom:6px }
+    .logo{ display:none }
+    .logo-img{ width:42px; height:42px; border-radius:10px; object-fit:cover; box-shadow:0 6px 18px rgba(123,162,255,.35), inset 0 1px 0 rgba(255,255,255,.25); }
+    h1{ font-size:24px; margin:0 }
+    .sub{ color:var(--muted); font-size:14px; margin:2px 0 20px }
+    .list{ margin:0; padding:0; list-style:none; display:grid; gap:10px }
+    .list li{ display:flex; gap:10px; align-items:flex-start; color:#ced8ff }
+    .list .tag{ font-size:12px; color:var(--muted); border:1px solid var(--border); border-radius:999px; padding:2px 8px; margin-right:8px }
+    .btn-row{ display:flex; gap:12px; margin-top:18px; flex-wrap:wrap }
+    .btn{ appearance:none; border:1px solid var(--border); padding:10px 14px; border-radius:12px; background:#0f1729; color:var(--text); cursor:pointer; transition:transform .08s ease, box-shadow .2s ease, border-color .2s ease; text-decoration:none; display:inline-flex; align-items:center; gap:8px }
+    .btn.primary{ background:linear-gradient(180deg, var(--brand), var(--brand-2)); border-color:transparent; color:#0a1020; font-weight:600; box-shadow:0 12px 30px rgba(91,140,255,.35) }
+    .btn:hover{ transform:translateY(-1px) }
+    .btn:focus{ outline:3px solid var(--ring); outline-offset:2px }
+    .top-nav{ display:flex; gap:12px; margin:0 0 16px 0; align-items:center; flex-wrap:wrap }
+    .map-wrap{ position:relative; width:100%; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; border:1px solid var(--border); margin-top:16px; }
+    .map-wrap iframe{ position:absolute; top:0; left:0; width:100%; height:100%; border:0 }
+    form{ display:grid; gap:16px }
+    .field{ position:relative }
+    .form-control{ width:100%; padding:22px 14px 10px 14px; border-radius:12px; background:#0e1627; border:1.5px solid var(--border); color:var(--text); transition:border-color .2s ease, box-shadow .2s ease, background .2s ease; font-size:15px; }
+    .form-control::placeholder{ color:transparent }
+    .form-control:focus{ border-color:var(--brand); box-shadow:0 0 0 6px var(--ring); outline:none; background:#0c1424 }
+    .label{ position:absolute; left:12px; top:14px; color:var(--muted); padding:0 6px; background:transparent; pointer-events:none; transition:transform .18s ease, color .18s ease, background .18s ease, top .18s ease; border-radius:6px; }
+    .form-control:focus + .label, .form-control:not(:placeholder-shown) + .label{ top:-8px; transform:scale(.9); color:var(--brand-2); background:var(--card); }
+    .hint{ font-size:12px; color:var(--muted); margin-top:6px }
+    .error{ color:var(--error) } .ok{ color:var(--ok) }
+    .row{ display:grid; grid-template-columns:1fr 1fr; gap:16px }
+    @media (max-width:700px){ .row{ grid-template-columns:1fr } }
+    textarea.form-control{ min-height:140px; resize:vertical }
+    .submit{ display:flex; align-items:center; gap:10px; justify-content:flex-start }
+    .submit .btn.primary{ min-width:160px }
+    .status{ font-size:13px; color:var(--muted) }
+    .status.error{ color:var(--error) } .status.ok{ color:var(--ok) }
+    .small{ font-size:12px; color:var(--muted); margin-top:4px }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- Back button to main site -->
+    <nav class="top-nav" aria-label="Breadcrumb">
+      <a class="btn" href="index.html" aria-label="Go back to Skyline homepage">← Back to site</a>
+    </nav>
+
+    <div class="grid">
+      <!-- Left: Contact details -->
+      <section class="card" aria-labelledby="contactTitle">
+        <div class="brand">
+          <img src="logo.png" alt="Skyline Computers logo" class="logo-img">
+          <h1 id="contactTitle">Skyline Computers</h1>
+        </div>
+        <p class="sub">Institute in Srinagar offering MS Office, Web Development, Programming, Tally and more. Reach out for admissions and support.</p>
+        <ul class="list">
+          <li><span class="tag">Address</span> Lasjan A, Near JK Bank Srinagar, Jammu & Kashmir</li>
+          <li><span class="tag">Phone</span> <a href="tel:+919186067685" style="color:#e9efff;">+91 9186067685</a></li>
+          <li><span class="tag">Email</span> <a href="mailto:skylinecomputer01@gmail.com" style="color:#e9efff;">skylinecomputer01@gmail.com</a></li>
+          <li><span class="tag">Hours</span> Mon–Sat, 09:00 AM – 05:00 PM</li>
+        </ul>
+
+        <!-- Map -->
+        <h2 style="margin:16px 0 10px 0;font-size:18px;color:#cfe0ff">Location — Lasjan, Srinagar</h2>
+        <div class="map-wrap">
+          <iframe title="Skyline Computers on Google Maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d413.2609034188233!2d74.86782693062999!3d34.04163351287669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e18fcae27af071%3A0x99613c4bc7665a8b!2sSkyline%20Computers!5e0!3m2!1sen!2sin!4v1760237788363!5m2!1sen!2sin" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn primary" href="tel:+919186067685">Call now</a>
+          <a class="btn" href="mailto:skylinecomputer01@gmail.com">Email us</a>
+        </div>
+      </section>
+
+      <!-- Right: Form (Web3Forms integrated) -->
+      <section class="card" aria-labelledby="formTitle">
+        <h2 id="formTitle" style="margin:0 0 8px 0;font-size:18px;color:#cfe0ff;">Send a message</h2>
+
+        <!-- Pure HTML Web3Forms submit. Do not add JS fetch here to avoid CORS/redirect conflicts. -->
+        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <!-- REQUIRED: your access key -->
+          <input type="hidden" name="access_key" value="cee5037a-5efd-4f89-9f50-ec011b926e07">
+          <!-- Optional metadata -->
+          <input type="hidden" name="from_name" value="Skyline Computers Website">
+          <input type="hidden" name="subject" value="New message from Skyline Computers">
+
+          <!-- Optional: redirect after success (use absolute URL with https) -->
+          <input type="hidden" name="redirect" value="https://skylinenotes.netlify.app/redirect">
+
+          <div class="row">
+            <div class="field">
+              <input class="form-control" id="name" name="name" type="text" placeholder=" " autocomplete="name" required minlength="2" aria-describedby="nameHint" />
+              <label class="label" for="name">Full name</label>
+              <div class="hint" id="nameHint">Enter at least 2 characters.</div>
+            </div>
+            <div class="field">
+              <input class="form-control" id="email" name="email" type="email" placeholder=" " autocomplete="email" required aria-describedby="emailHint" />
+              <label class="label" for="email">Email</label>
+              <div class="hint" id="emailHint">We’ll use this to reply.</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <input class="form-control" id="phone" name="phone" type="tel" placeholder=" " inputmode="tel" pattern="^[0-9()+\-\\s]{7,15}$" aria-describedby="phoneHint" />
+              <label class="label" for="phone">Phone (optional)</label>
+              <div class="hint" id="phoneHint">Digits, spaces, +, -, ( ) allowed.</div>
+            </div>
+            <div class="field">
+              <input class="form-control" id="subject" name="User Subject" type="text" placeholder=" " required minlength="3" aria-describedby="subjectHint" />
+              <label class="label" for="subject">Subject</label>
+              <div class="hint" id="subjectHint">E.g., Admission, Course info, Support.</div>
+            </div>
+          </div>
+
+          <div class="field">
+            <textarea class="form-control" id="message" name="message" placeholder=" " required minlength="10" maxlength="1000" aria-describedby="messageHint"></textarea>
+            <label class="label" for="message">Your message</label>
+            <div class="hint" id="messageHint"><span id="charCount">0</span>/1000 characters</div>
+          </div>
+
+          <div class="submit">
+            <button type="submit" class="btn primary">Send message</button>
+            <div class="status" id="status" role="status" aria-live="polite"></div>
+          </div>
+          <div class="small">Whether you're a student, parent, or curious learner — drop a message. Skyline Computers will help with courses, registration, and support.</div>
+        </form>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const byId = (id) => document.getElementById(id);
+    const form = byId('contactForm');
+    const fields = { name: byId('name'), email: byId('email'), phone: byId('phone'), subject: byId('subject'), message: byId('message') };
+    const hints = { name: byId('nameHint'), email: byId('emailHint'), phone: byId('phoneHint'), subject: byId('subjectHint'), message: byId('messageHint') };
+    const statusEl = byId('status');
+    const charCount = byId('charCount');
+
+    // Character counter (UI only)
+    fields.message.addEventListener('input', () => {
+      charCount.textContent = fields.message.value.length;
+    });
+
+    // Email normalization + native validity before browser submits
+    function normalizeEmail() {
+      const cleaned = fields.email.value.replace(/\\u00A0/g, ' ').trim();
+      if (fields.email.value !== cleaned) fields.email.value = cleaned;
+    }
+    function updateEmailState() {
+      normalizeEmail();
+      if (fields.email.validity.valid) {
+        fields.email.setCustomValidity('');
+        fields.email.removeAttribute('aria-invalid');
+        hints.email.textContent = 'We’ll use this to reply.';
+        return true;
+      }
+      if (fields.email.validity.valueMissing) {
+        fields.email.setCustomValidity('Please enter your email.');
+      } else if (fields.email.validity.typeMismatch || fields.email.validity.patternMismatch) {
+        fields.email.setCustomValidity('Enter a valid email address.');
+      } else {
+        fields.email.setCustomValidity('Enter a valid email address.');
+      }
+      fields.email.setAttribute('aria-invalid', 'true');
+      hints.email.textContent = fields.email.validationMessage;
+      return false;
+    }
+    fields.email.addEventListener('blur', updateEmailState);
+    fields.email.addEventListener('input', () => {
+      normalizeEmail();
+      if (fields.email.validity.valid) {
+        fields.email.setCustomValidity('');
+        fields.email.removeAttribute('aria-invalid');
+        hints.email.textContent = 'We’ll use this to reply.';
+      }
+    });
+
+    // Phone validator (UI hint only)
+    const isPhone = (v) => v.trim() === '' || /^[0-9()+\\-\\s]{7,15}$/.test(v);
+
+    function setHint(el, msg, ok=false){
+      const hint = hints[el.id];
+      if (!hint) return;
+      hint.textContent = msg;
+      hint.classList.toggle('error', !ok);
+      hint.classList.toggle('ok', ok);
+    }
+
+    function validateField(el){
+      const v = el.value.trim();
+      if(el.id === 'name'){
+        if(v.length < 2){ setHint(el, 'Please enter your full name (min 2 chars).'); return false; }
+        setHint(el, 'Looks good.', true); return true;
+      }
+      if(el.id === 'email'){ return updateEmailState(); }
+      if(el.id === 'phone'){
+        if(!isPhone(v)){ setHint(el, 'Use 7–15 characters: digits, spaces, +, -, ( ).'); return false; }
+        setHint(el, v ? 'Phone looks valid.' : 'Optional field.', !!v); return true;
+      }
+      if(el.id === 'subject'){
+        if(v.length < 3){ setHint(el, 'Add a short subject (min 3 chars).'); return false; }
+        setHint(el, 'Great.', true); return true;
+      }
+      if(el.id === 'message'){
+        if(v.length < 10){ setHint(el, 'Please provide more details (min 10 chars).'); return false; }
+        setHint(el, 'Thanks for the details.', true); return true;
+      }
+      return true;
+    }
+
+    Object.values(fields).forEach(input => {
+      input?.addEventListener('blur', () => validateField(input));
+      input?.addEventListener('input', () => {
+        if(input === fields.message){ charCount.textContent = input.value.length; }
+        validateField(input);
+      });
+    });
+
+    // Let the browser submit to Web3Forms; do not intercept with fetch to avoid CORS/redirect issues.
+    form.addEventListener('submit', (e) => {
+      // Optionally run last-minute client checks, but do NOT preventDefault to keep native post. [web:217]
+      const ok = ['name','email','subject','message'].every(id => validateField(fields[id]));
+      if (!ok) {
+        // Prevent only if invalid; otherwise allow native submit to Web3Forms.
+        e.preventDefault();
+        statusEl.textContent = 'Please fix the highlighted fields and try again.';
+        statusEl.className = 'status error';
+      } else {
+        statusEl.textContent = 'Sending...';
+        statusEl.className = 'status';
+      }
+    });
+  </script>
+</body>
+</html>
