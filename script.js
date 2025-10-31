@@ -102,4 +102,6 @@
 
   setupAccordionButton('wordBtn', 'wordPanel');
   setupAccordionButton('excelBtn', 'excelPanel');
+  setupAccordionButton('htmlBtn', 'htmlPanel');
+  setupAccordionButton('moreBtn', 'morePanel');
 })();
